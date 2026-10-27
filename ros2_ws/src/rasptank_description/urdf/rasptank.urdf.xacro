@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <!--
-  RaspTank (Adeept RaspTank V4) simplificado con formas básicas.
+  RaspTank (Adeept RaspTank V4) simplificado con formas basicas.
 
-  Las medidas son aproximadas: ajústalas midiendo tu robot. Las del brazo
-  deben coincidir con ArmGeometry (rasptank_core/arm.py), que usa la misión
-  para saber dónde queda la pinza; test_description.py lo comprueba.
+  Las medidas son aproximadas: ajustalas midiendo tu robot. Las del brazo
+  deben coincidir con ArmGeometry (rasptank_core/arm.py), que usa la mision
+  para saber donde queda la pinza; test_description.py lo comprueba.
 
-  Ejes: x adelante, y izquierda, z arriba. Ángulos de las articulaciones en
-  radianes; 0 = servo a 90°.
+  Ejes: x adelante, y izquierda, z arriba. Angulos de las articulaciones en
+  radianes; 0 = servo a 90 grados.
 -->
 <robot name="rasptank" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
@@ -22,7 +22,7 @@
   <xacro:property name="upper_arm" value="0.08"/>
   <xacro:property name="forearm" value="0.06"/>
   <xacro:property name="gripper_center" value="0.04"/>    <!-- forearm + esto = reach -->
-  <!-- cámara -->
+  <!-- camara -->
   <xacro:property name="camera_x" value="0.10"/>
   <xacro:property name="camera_z" value="0.06"/>
   <xacro:property name="servo_limit" value="1.5708"/>
@@ -161,7 +161,7 @@
     <origin xyz="${gripper_center} 0 0"/>
   </joint>
 
-  <!-- cámara con servo de inclinación (E): positivo = mirar hacia abajo -->
+  <!-- camara con servo de inclinacion (E): positivo = mirar hacia abajo -->
   <link name="camera_link">
     <visual>
       <geometry><box size="0.015 0.03 0.025"/></geometry>
@@ -175,7 +175,7 @@
     <axis xyz="0 1 0"/>
     <limit lower="${-servo_limit}" upper="${servo_limit}" effort="1" velocity="2"/>
   </joint>
-  <!-- convenio de las cámaras: z adelante, x derecha, y abajo -->
+  <!-- convenio de las camaras: z adelante, x derecha, y abajo -->
   <link name="camera_optical_frame"/>
   <joint name="camera_optical_joint" type="fixed">
     <parent link="camera_link"/>
@@ -196,7 +196,7 @@
     <origin xyz="0.11 0 0.025"/>
   </joint>
 
-  <!-- tres sensores de línea bajo el frontal (centro = el del medio) -->
+  <!-- tres sensores de linea bajo el frontal (centro = el del medio) -->
   <link name="line_sensor_link">
     <visual>
       <geometry><box size="0.01 0.04 0.005"/></geometry>

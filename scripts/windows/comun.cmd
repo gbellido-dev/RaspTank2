@@ -4,6 +4,8 @@ for %%R in ("%~dp0..\..") do set "RT_ROOT=%%~fR"
 set "RT_MANIFEST=%RT_ROOT%\tools\windows\pixi.toml"
 set "RT_PIXI=pixi"
 if exist "%RT_ROOT%\windows\pixi.exe" set "RT_PIXI=%RT_ROOT%\windows\pixi.exe"
+rem Python reads text files as UTF-8, not cp1252 (xacro, YAML).
+set "PYTHONUTF8=1"
 rem RT_RUN runs a command inside the ROS 2 environment.
 set "RT_ENV=%RT_ROOT%\tools\windows\.pixi\envs\default"
 set "RT_RUN="%RT_PIXI%" run --manifest-path "%RT_MANIFEST%""

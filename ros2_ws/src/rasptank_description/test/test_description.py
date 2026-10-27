@@ -31,3 +31,9 @@ def test_every_servo_joint_is_in_the_urdf():
     _, text = props()
     for joint in JOINTS:
         assert f'<joint name="{joint}" type="revolute">' in text
+
+
+def test_xacro_is_ascii():
+    # xacro reads the file with the locale encoding: cp1252 on Windows
+    with open(XACRO, 'rb') as f:
+        f.read().decode('ascii')
