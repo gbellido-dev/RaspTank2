@@ -5,6 +5,20 @@ ROS 2 Humble nativo en Windows 10/11 (64 bits) con
 RobotMK2. El workspace del RaspTank es todo Python: **no hace falta Visual
 Studio ni compilar nada en C++**.
 
+## Instalar sin internet (release)
+
+Descarga `RaspTank2-vX.Y.Z-windows.zip` de
+[Releases](https://github.com/gbellido-dev/RaspTank2/releases) (unos 600 MB),
+descomprímelo en una carpeta sin espacios (p. ej. `C:\RaspTank2`) y ejecuta:
+
+```bat
+scripts\instalar_windows.bat
+```
+
+Desempaqueta el entorno de ROS 2 de `windows\environment.tar` en
+`windows\env` (no necesita Pixi ni internet) y compila el workspace. Sirve
+para preparar varios PC del aula con una memoria USB.
+
 ## Instalar (una vez, con internet)
 
 ```bat

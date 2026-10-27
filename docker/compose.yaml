@@ -1,10 +1,12 @@
 # En la Raspberry Pi:  docker compose -f docker/compose.yaml up -d
+# Imagen ya construida (releases):  docker compose -f docker/compose.yaml pull
+# Una versión concreta: export RASPTANK_VERSION=v0.1.0 (para pull y up)
 services:
   rasptank:
     build:
       context: ..
       dockerfile: docker/Dockerfile
-    image: rasptank-ros2:humble
+    image: ghcr.io/gbellido-dev/rasptank2:${RASPTANK_VERSION:-latest}
     container_name: rasptank
     restart: unless-stopped
     network_mode: host          # DDS necesita la red del anfitrión

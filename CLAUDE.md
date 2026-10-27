@@ -22,6 +22,8 @@ en español; escribe en español. El código y sus comentarios, en inglés.
 - `docker/`: ROS 2 en la Pi; `scripts/pi/camara_host.py`: cámara fuera de Docker.
 - `tools/windows/pixi.toml` (+ `pixi.lock`) y `scripts/*_windows.bat`: Windows con
   RoboStack, ver WINDOWS.md. `scripts/tests.py`: tests en Linux y Windows.
+- `.github/workflows`: `ci.yml` (Linux y Windows) y `release.yml` (al subir una
+  etiqueta `v*`: imagen de la Pi en ghcr.io y zip de Windows sin internet).
 - `legacy/adeept/`: código original de Adeept (sin ROS), no tocar.
 
 ## Comandos

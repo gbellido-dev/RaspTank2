@@ -1,6 +1,6 @@
 @echo off
 rem Runs a command with ROS 2 and the RaspTank workspace loaded.
-rem It is called through "pixi run", which has already activated ROS 2.
+rem It is called through %RT_RUN%, which has already activated ROS 2.
 if exist "%RT_ROOT%\ros2_ws\install\setup.bat" (
     call "%RT_ROOT%\ros2_ws\install\setup.bat"
 ) else (

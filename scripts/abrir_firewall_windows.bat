@@ -3,7 +3,7 @@ rem Permite el trafico de ROS 2 (DDS) con el robot en la red local.
 rem Ejecutar como administrador, una vez. /preview: solo muestra las reglas.
 setlocal
 call "%~dp0windows\comun.cmd"
-set "ENV=%RT_ROOT%\tools\windows\.pixi\envs\default"
+set "ENV=%RT_ENV%"
 set "PREVIEW=0"
 if /i "%~1"=="/preview" set "PREVIEW=1"
 call :rule "RaspTank ROS2 Python" "%ENV%\python.exe"

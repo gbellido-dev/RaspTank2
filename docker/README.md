@@ -15,8 +15,16 @@ curl -fsSL https://get.docker.com | sh
 sudo usermod -aG docker $USER              # y vuelve a entrar en la sesión
 sudo systemctl disable --now webServer     # si instalaste el servidor de Adeept
 git clone https://github.com/gbellido-dev/RaspTank2.git && cd RaspTank2
-docker compose -f docker/compose.yaml build      # unos 15-20 min la primera vez
+docker compose -f docker/compose.yaml pull       # imagen ya construida (unos 2 min)
 ```
+
+`pull` descarga la imagen de la última *release*
+(`ghcr.io/gbellido-dev/rasptank2`). Para fijar una versión, la misma que el
+código del PC: `git checkout v0.1.0` y `export RASPTANK_VERSION=v0.1.0`
+antes de `pull` y de `up` (o ponlo en `docker/.env`).
+
+Si cambias el código de los nodos, constrúyela en la Pi (15-20 min la primera
+vez): `docker compose -f docker/compose.yaml build`.
 
 ## Arrancar
 

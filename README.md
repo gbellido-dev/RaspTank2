@@ -20,6 +20,11 @@ Prácticas para los alumnos: [docs/practicas](docs/practicas/README.md).
 
 En **Windows**: `scripts\instalar_windows.bat` y `menu_rasptank.bat` — [WINDOWS.md](WINDOWS.md).
 
+**Versiones** ([Releases](https://github.com/gbellido-dev/RaspTank2/releases)):
+la imagen Docker de la Raspberry Pi (nodos del hardware) y un `.zip` para
+Windows que se instala sin internet. En la Pi va el hardware; en el PC, la
+visión, la misión, RViz, el simulador, la app y los programas de los alumnos.
+
 Guía completa: **[ROS2.md](ROS2.md)**. Robot real: [docker/README.md](docker/README.md).
 Entrenar un modelo: [tools/yolo/README.md](tools/yolo/README.md).
 

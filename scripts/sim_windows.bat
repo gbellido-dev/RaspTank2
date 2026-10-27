@@ -13,7 +13,7 @@ if "%~1"=="" goto run
 set "ARGS=%ARGS% %1"
 goto args
 :run
-"%RT_PIXI%" run --manifest-path "%RT_MANIFEST%" cmd /d /c scripts\windows\en_ros.cmd ros2 launch rasptank_bringup sim.launch.py world:=%MUNDO%%ARGS%
+%RT_RUN% cmd /d /c scripts\windows\en_ros.cmd ros2 launch rasptank_bringup sim.launch.py world:=%MUNDO%%ARGS%
 set "RC=%ERRORLEVEL%"
 popd
 exit /b %RC%

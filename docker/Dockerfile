@@ -1,6 +1,7 @@
 # ROS 2 Humble para el RaspTank, en la Raspberry Pi 4 con Raspberry Pi OS (64 bits).
 # Construir en la Pi:   docker compose -f docker/compose.yaml build
 FROM ros:humble-ros-base
+LABEL org.opencontainers.image.source=https://github.com/gbellido-dev/RaspTank2
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
       python3-pip python3-dev gcc python3-opencv python3-yaml python3-smbus i2c-tools \
