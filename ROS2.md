@@ -59,7 +59,7 @@ de modo que el detector y la misión son exactamente los del robot real.
 
 Y fuera del workspace, la **aplicación** del PC: `./scripts/app.sh` ([tools/app](tools/app/README.md)).
 
-El código antiguo de Adeept (`web/`, `examples/`, `Client/`) sigue igual y
+El código antiguo de Adeept está en [legacy/adeept](legacy/adeept/README.md) y
 se puede usar sin ROS.
 
 ## 2. Instalación en el PC

@@ -4,7 +4,7 @@ The real drivers import the Raspberry Pi libraries (Adafruit PCA9685,
 gpiozero, smbus) only when they are created, so the nodes also run on a PC
 with `driver: fake` (simulation, tests).
 
-Wiring (from the Adeept code in web/):
+Wiring (from the Adeept code in legacy/adeept/web/):
   PCA9685 at I2C 0x5f, 50 Hz
     channels 0-4: servos A-E (arm, hand, wrist, gripper, camera)
     channels 15/14: motor M1, 12/13: motor M2

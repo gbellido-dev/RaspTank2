@@ -2,7 +2,7 @@
 
 Raspberry Pi OS (Bookworm, 64 bits) no tiene paquetes de ROS 2, así que ROS 2
 Humble corre en un contenedor y el sistema se queda como está: el código de
-Adeept (`web/`, `setup.py`) sigue funcionando si no está el contenedor.
+Adeept (`legacy/adeept/`) sigue funcionando si no está el contenedor.
 
 > No arranques a la vez el servidor web de Adeept (`webServer.service`) y el
 > contenedor: los dos usan los mismos motores y servos.

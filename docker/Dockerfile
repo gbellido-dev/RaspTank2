@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       ros-humble-tf2-ros ros-humble-teleop-twist-keyboard \
     && rm -rf /var/lib/apt/lists/*
 
-# Librerías del hardware (las mismas que usa el código de Adeept en web/)
+# Librerías del hardware (las mismas que usa el código de Adeept en legacy/adeept/web/)
 RUN pip3 install --no-cache-dir \
       adafruit-blinka adafruit-circuitpython-pca9685 adafruit-circuitpython-motor \
       RPi.GPIO gpiozero smbus2 spidev numpy

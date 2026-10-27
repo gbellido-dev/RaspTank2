@@ -22,7 +22,7 @@ en español; escribe en español. El código y sus comentarios, en inglés.
 - `docker/`: ROS 2 en la Pi; `scripts/pi/camara_host.py`: cámara fuera de Docker.
 - `tools/windows/pixi.toml` (+ `pixi.lock`) y `scripts/*_windows.bat`: Windows con
   RoboStack, ver WINDOWS.md. `scripts/tests.py`: tests en Linux y Windows.
-- `web/`, `examples/`, `Client/`: código original de Adeept (sin ROS), no tocar.
+- `legacy/adeept/`: código original de Adeept (sin ROS), no tocar.
 
 ## Comandos
 
