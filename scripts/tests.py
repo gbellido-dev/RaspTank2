@@ -55,6 +55,8 @@ def stop_launch(proc):
 def e2e(timeout=240):
     print('== misión simulada', flush=True)
     env_domain = os.environ.setdefault('ROS_DOMAIN_ID', '77')
+    # Keep DDS on this machine: CI runners (and some school networks) block multicast
+    os.environ.setdefault('ROS_LOCALHOST_ONLY', '1')
     log_path = ROOT / 'ros2_ws' / 'log' / 'e2e_sim.log'
     log_path.parent.mkdir(parents=True, exist_ok=True)
     with open(log_path, 'w', encoding='utf-8') as log:
@@ -68,6 +70,8 @@ def e2e(timeout=240):
             stop_launch(proc)
     if rc:
         print(f'registro de la simulación (dominio {env_domain}): {log_path}')
+        lines = log_path.read_text(encoding='utf-8', errors='replace').splitlines()
+        print('\n'.join(lines[-60:]))
     return rc
 
 
