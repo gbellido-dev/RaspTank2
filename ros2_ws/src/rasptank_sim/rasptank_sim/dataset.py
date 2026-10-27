@@ -112,12 +112,12 @@ def main():
             split = 'val' if rng.random() < args.val else 'train'
             name = f'sim_{written:05d}'
             cv2.imwrite(os.path.join(args.out, 'images', split, name + '.jpg'), img)
-            with open(os.path.join(args.out, 'labels', split, name + '.txt'), 'w') as f:
+            with open(os.path.join(args.out, 'labels', split, name + '.txt'), 'w', encoding='utf-8') as f:
                 f.write('\n'.join(labels) + ('\n' if labels else ''))
             written += 1
             if written >= args.images:
                 break
-    with open(os.path.join(args.out, 'data.yaml'), 'w') as f:
+    with open(os.path.join(args.out, 'data.yaml'), 'w', encoding='utf-8') as f:
         f.write(f'path: {os.path.abspath(args.out)}\ntrain: images/train\nval: images/val\n'
                 f'names:\n' + ''.join(f'  {i}: {n}\n' for i, n in enumerate(CLASSES)))
     print(f'{written} images in {args.out}')

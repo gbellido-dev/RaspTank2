@@ -65,9 +65,9 @@ def test_dataset_generator(tmp_path, monkeypatch):
     images = list((tmp_path / 'images').rglob('*.jpg'))
     labels = list((tmp_path / 'labels').rglob('*.txt'))
     assert len(images) == 6 and len(labels) == 6
-    rows = [line.split() for f in labels for line in f.read_text().splitlines()]
+    rows = [line.split() for f in labels for line in f.read_text(encoding='utf-8').splitlines()]
     assert rows, 'no object labelled in any image'
     for row in rows:
         assert row[0] in ('0', '1')
         assert all(0.0 <= float(v) <= 1.0 for v in row[1:])
-    assert 'names' in (tmp_path / 'data.yaml').read_text()
+    assert 'names' in (tmp_path / 'data.yaml').read_text(encoding='utf-8')

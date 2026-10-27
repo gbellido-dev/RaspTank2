@@ -74,7 +74,7 @@ class WorldNode(Node):
 
         if not world_file:
             raise ValueError('world_file parameter is required')
-        with open(world_file) as f:
+        with open(world_file, encoding='utf-8') as f:
             config = yaml.safe_load(f)
         self.world = World(config)
         self.motion = TrueMotion(MotorErrors.from_config(config.get('robot_errors')))

@@ -71,13 +71,13 @@ def main(argv=None):
             if label is not None:
                 shutil.copy(label, target)
             else:
-                target.write_text('')            # an image without objects
+                target.write_text('', encoding='utf-8')     # an image without objects
             counts[split] += 1
         print(f'{path}: {len(items)} imágenes ({n_val} a validación)')
     names = [c.strip() for c in args.clases.split(',') if c.strip()]
     (out / 'data.yaml').write_text(
         f'path: {out.resolve()}\ntrain: images/train\nval: images/val\nnames:\n'
-        + ''.join(f'  {i}: {name}\n' for i, name in enumerate(names)))
+        + ''.join(f'  {i}: {name}\n' for i, name in enumerate(names)), encoding='utf-8')
     print(f'{out}: {counts["train"]} de entrenamiento, {counts["val"]} de validación')
     if counts['val'] == 0:
         print('AVISO: no hay validación; pon primero la fuente con fotos reales')

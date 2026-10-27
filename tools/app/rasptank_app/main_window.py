@@ -295,6 +295,7 @@ class MainWindow(QMainWindow):
         try:
             self.sim_process = subprocess.Popen(args, env=env, stdout=subprocess.PIPE,
                                                 stderr=subprocess.STDOUT, text=True, bufsize=1,
+                                                encoding='utf-8', errors='replace',
                                                 **kwargs)
         except OSError as e:
             self.sim_log.appendPlainText(f'No se puede lanzar: {e}')

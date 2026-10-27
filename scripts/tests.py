@@ -57,7 +57,7 @@ def e2e(timeout=240):
     env_domain = os.environ.setdefault('ROS_DOMAIN_ID', '77')
     log_path = ROOT / 'ros2_ws' / 'log' / 'e2e_sim.log'
     log_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(log_path, 'w') as log:
+    with open(log_path, 'w', encoding='utf-8') as log:
         proc = start_launch(['rviz:=false', 'mission:=true', 'autostart:=true',
                              'calibration_file:=none'], log)
         try:

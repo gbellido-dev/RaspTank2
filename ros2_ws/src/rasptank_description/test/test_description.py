@@ -12,7 +12,8 @@ XACRO = os.path.join(HERE, '..', 'urdf', 'rasptank.urdf.xacro')
 
 
 def props():
-    text = open(XACRO).read()
+    with open(XACRO, encoding='utf-8') as f:
+        text = f.read()
     return {m[0]: float(m[1]) for m in
             re.findall(r'<xacro:property name="(\w+)" value="([-0-9.]+)"', text)}, text
 

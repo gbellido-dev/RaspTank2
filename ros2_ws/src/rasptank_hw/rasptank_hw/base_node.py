@@ -149,7 +149,7 @@ class BaseNode(Node):
         if not self.calibration_file or not os.path.exists(self.calibration_file):
             return
         try:
-            with open(self.calibration_file) as f:
+            with open(self.calibration_file, encoding='utf-8') as f:
                 data = yaml.safe_load(f) or {}
             values = [Parameter(n, value=float(data[n])) for n in CALIBRATION_PARAMS if n in data]
             for result, prm in zip(self.set_parameters(values), values):
@@ -166,7 +166,7 @@ class BaseNode(Node):
         data = {n: float(self.param(n)) for n in CALIBRATION_PARAMS}
         try:
             os.makedirs(os.path.dirname(self.calibration_file) or '.', exist_ok=True)
-            with open(self.calibration_file, 'w') as f:
+            with open(self.calibration_file, 'w', encoding='utf-8') as f:
                 f.write('# RaspTank odometry calibration (rasptank_calibration)\n')
                 yaml.safe_dump(data, f, default_flow_style=False)
         except OSError as e:
