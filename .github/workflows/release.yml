@@ -143,5 +143,11 @@ jobs:
           sed -e "s|{{VERSION}}|$GITHUB_REF_NAME|g" \
               -e "s|{{IMAGE}}|ghcr.io/${GITHUB_REPOSITORY,,}|g" \
               .github/release_notes.md > notas.md
-          gh release create "$GITHUB_REF_NAME" RaspTank2-*-windows.zip \
-            --title "RaspTank2 $GITHUB_REF_NAME" --notes-file notas.md --generate-notes
+          # The release may already exist if it was created on github.com (that creates the tag)
+          if gh release view "$GITHUB_REF_NAME" > /dev/null 2>&1; then
+            gh release upload "$GITHUB_REF_NAME" RaspTank2-*-windows.zip --clobber
+            gh release edit "$GITHUB_REF_NAME" --title "RaspTank2 $GITHUB_REF_NAME" --notes-file notas.md
+          else
+            gh release create "$GITHUB_REF_NAME" RaspTank2-*-windows.zip \
+              --title "RaspTank2 $GITHUB_REF_NAME" --notes-file notas.md --generate-notes
+          fi
